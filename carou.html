@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - SuperCar</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel-images img.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>SuperCar</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="voitures.html">Voitures</a></li>
+                <li><a href="demande-essai.html">Demande d'essai</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contactez-nous</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <div class="carousel-images">
+            <img src="supercar/static/images/voiture1.jpg" alt="Image 1" class="active">
+            <img src="supercar/static/images/voiture2.jpg" alt="Image 2">
+            <img src="supercar/static/images/voiture3.jpg" alt="Image 3">
+            <img src="supercar/static/images/voiture4.jpg" alt="Image 4">
+        </div>
+    </section>
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel-images img');
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 1000); // Change image every 3 seconds
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SuperCar. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
